@@ -7,6 +7,7 @@
 
 IMAGE bird, bird_mask;
 int bird_x, bird_y;
+int bird_width, bird_height;
 
 int dy;
 
@@ -19,6 +20,9 @@ void bird_init()
 
 	bird_x = WINDOW_WIDTH / 2 - bird.getwidth() / 2;
 	bird_y = WINDOW_HEIGHT / 2 - bird.getheight() / 2;
+	bird_width = bird.getwidth();
+	bird_height = bird.getheight();
+
 }
 
 void bird_update(int dt)
@@ -44,7 +48,14 @@ void bird_update(int dt)
 
 void bird_render()
 {
-	putimage(bird_x, bird_y, &bird_mask, NOTSRCERASE);
+ 	putimage(bird_x, bird_y, &bird_mask, NOTSRCERASE);
 	putimage(bird_x, bird_y, &bird, SRCINVERT);
 
+}
+
+int bird_collides(Pipe *pipe) {
+	if ((bird_x + 2) + (bird_width - 4) >= pipe->x && bird_x + 2 <= pipe->x + PIPE_WIDTH)
+		if (((bird_y + 2) + (bird_height - 4)) >= pipe->y && (bird_y + 2 <= pipe->y + PIPE_HEIGHT))
+			return 1;
+	return 0;
 }

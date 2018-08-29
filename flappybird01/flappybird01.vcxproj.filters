@@ -33,6 +33,15 @@
     <ClInclude Include="pipes.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="playstatus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="status.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="titleStatus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +57,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="pipes.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playstatus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="status.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="titleStatus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

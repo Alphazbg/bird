@@ -3,6 +3,8 @@
 #include "scence.h"
 #include <stdlib.h>
 #include <time.h>
+#include "bird.h"
+#include "status.h"
 
 int head;
 int tail;
@@ -39,11 +41,11 @@ void pipes_update(int dt)
 		if (y <  20)
 			y = 20;
 		
-		//if (y > 3 * WINDOW_WIDTH / 4)
-		//	orientation = BUTTOM;
-		//else if (y < WINDOW_WIDTH / 4)
-		//	orientation = TOP;
-		//else
+		if (y > 3 * WINDOW_WIDTH / 4)
+			orientation = BUTTOM;
+		else if (y < WINDOW_WIDTH / 4)
+			orientation = TOP;
+		else
 		orientation = ALL;
 
 		pipelist_enqueue(x, y, 0, orientation);
@@ -51,8 +53,11 @@ void pipes_update(int dt)
 	}
 	while (pipes[head].remove == 1 && tail != head) pipelist_dequeue();
 	for (int i = 0; i < PIPES_LEN; i++) {
-		if (pipes[i].remove == 0)
+		if (pipes[i].remove == 0){
 			pipe_update(&pipes[i], dt);
+			/*if (bird_collides(&pipes[i]))
+				setStatus(TitleScreenState);*/
+		}
 	}	
 }
 
