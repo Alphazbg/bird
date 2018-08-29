@@ -21,12 +21,33 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="bird.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="scence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pipe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pipes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="flappybird01.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bird.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pipe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pipes.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
