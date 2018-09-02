@@ -1,13 +1,12 @@
 #include "stdafx.h"
 #include "pipe.h"
-#include "scence.h"
+//#include "scence.h"
 #include <graphics.h>
 #include <stdlib.h>
 #include <time.h>
 
-
 IMAGE pipe_image, pipe_mask_image;
-
+IMAGE pipe_top, pipe_mask_top;
 
 int randPipeType()
 {
@@ -18,14 +17,17 @@ void pipe_init()
 {
 
 	loadimage(&pipe_image, _T("pipe.jpg"));
-	loadimage(&pipe_mask_image, _T("pipe_mask.jpg"));
+	loadimage(&pipe_mask_image, _T("pipe_mask.jpg"));	
+	rotateimage(&pipe_top, &pipe_image, PI);
+	rotateimage(&pipe_mask_top, &pipe_mask_image, PI);
 
 }
 
-void initPipe(Pipe *pipe, int x, int y, int remove, int orientation)
+void initPipe(Pipe *pipe, int x, int y, int scored,int remove, int orientation)
 {
 	pipe->x = x;
 	pipe->y = y;
+	pipe->scored = scored;
 	pipe->remove = remove;
 	pipe->orientation = orientation;
 }
@@ -42,14 +44,15 @@ void pipe_update(Pipe * pipe,int dt)
 
 void pipe_render(Pipe * pipe)
 {
-	IMAGE pipe_top, pipe_mask_top;
+
 	if (pipe->orientation == TOP)
 	{
-		rotateimage(&pipe_top, &pipe_image, PI);
-		rotateimage(&pipe_mask_top, &pipe_mask_image, PI);
 
-		putimage(pipe->x, pipe->y - PIPE_HEIGHT, &pipe_mask_top, NOTSRCERASE);
-		putimage(pipe->x, pipe->y - PIPE_HEIGHT, &pipe_top, SRCINVERT);
+
+		putimage(pipe->x, pipe->y, &pipe_mask_top, NOTSRCERASE);
+		putimage(pipe->x, pipe->y, &pipe_top, SRCINVERT);
+		//putimage(pipe->x, pipe->y - PIPE_HEIGHT, &pipe_mask_top, NOTSRCERASE);
+		//putimage(pipe->x, pipe->y - PIPE_HEIGHT, &pipe_top, SRCINVERT);
 	}
 	else if(pipe->orientation == BUTTOM){
 		putimage(pipe->x, pipe->y, &pipe_mask_image, NOTSRCERASE);
@@ -57,14 +60,12 @@ void pipe_render(Pipe * pipe)
 	}
 
 	else {
-		rotateimage(&pipe_top, &pipe_image, PI);
-		rotateimage(&pipe_mask_top, &pipe_mask_image, PI);
 
-		putimage(pipe->x, pipe->y - PIPE_HEIGHT, &pipe_mask_top, NOTSRCERASE);
-		putimage(pipe->x, pipe->y - PIPE_HEIGHT, &pipe_top, SRCINVERT);
+		putimage(pipe->x, pipe->y - PIPE_HEIGHT- GAP_HEIGHT, &pipe_mask_top, NOTSRCERASE);
+		putimage(pipe->x, pipe->y - PIPE_HEIGHT - GAP_HEIGHT, &pipe_top, SRCINVERT);
 
-		putimage(pipe->x, pipe->y + GAP_HEIGHT, &pipe_mask_image, NOTSRCERASE);
-		putimage(pipe->x, pipe->y + GAP_HEIGHT, &pipe_image, SRCINVERT);
+		putimage(pipe->x, pipe->y , &pipe_mask_image, NOTSRCERASE);
+		putimage(pipe->x, pipe->y , &pipe_image, SRCINVERT);
 	}
 
 	

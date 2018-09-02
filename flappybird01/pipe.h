@@ -14,6 +14,7 @@
 struct Pipe {
 	int x;
 	int y;
+	int scored;
 	int remove;
 	int orientation;
 };
@@ -21,4 +22,4 @@ struct Pipe {
 void pipe_init();
 void pipe_update(struct Pipe *pipe,int dt);
 void pipe_render(struct Pipe *pipe);
-void initPipe(Pipe *pipe, int x, int y, int remove, int orientation);
+void initPipe(Pipe *pipe, int x, int y, int scored,int remove, int orientation);

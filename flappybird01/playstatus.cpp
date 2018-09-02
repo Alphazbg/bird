@@ -1,14 +1,21 @@
 #include "stdafx.h"
-#include "playstatus.h"
+#include "status.h"
 #include "bird.h"
 #include "pipes.h"
 
 
 void play_init()
 {
+	play_enter();
+}
+
+void play_enter()
+{
 	bird_init();
 	pipes_init();
 }
+
+
 
 void play_update(int dt)
 {

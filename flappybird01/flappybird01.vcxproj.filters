@@ -24,22 +24,19 @@
     <ClInclude Include="bird.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="scence.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="pipe.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="pipes.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="playstatus.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="status.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="titleStatus.h">
+    <ClInclude Include="scence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sound.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,13 +56,13 @@
     <ClCompile Include="pipes.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="playstatus.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="status.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="titleStatus.cpp">
+    <ClCompile Include="scence.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
