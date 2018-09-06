@@ -7,8 +7,8 @@
 
 void scence_init()
 {
-	wchar_t path[] = L"marios_way.mp3";
-	wchar_t name[] = L"bkmusic";
+	TCHAR path[] = _T("marios_way.mp3");
+	TCHAR name[] = _T("bkmusic");
 	initgraph(WINDOW_WIDTH, WINDOW_HEIGHT, SHOWCONSOLE);
 	loadimage(&background, _T("background.jpg"));
 	loadimage(&ground, _T("ground.jpg"));
